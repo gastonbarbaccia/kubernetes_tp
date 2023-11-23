@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucaseveron-tp6billin
+  labels:
+    app: appjava
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: appjava
+  template:
+    metadata:
+      labels:
+        app: appjava
+    spec:
+      containers:
+      - name: appjava
+        image: lucaseveron/tp6billingapp:v1
+        ports:
+        - containerPort: 80
+        
+
