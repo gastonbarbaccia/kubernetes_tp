@@ -5,6 +5,7 @@ metadata:
   labels:
     app: appjava
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: appjava
@@ -15,7 +16,14 @@ spec:
     spec:
       containers:
         - name: appjava
-          image: lucaseveron/tp6billingapp:v1
+          image: lucaseveron/tp6billingapp:v2
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
             - containerPort: 7080
           volumeMounts:
