@@ -14,9 +14,15 @@ spec:
         app: appjava
     spec:
       containers:
-      - name: appjava
-        image: lucaseveron/tp6billingapp:v1
-        ports:
-        - containerPort: 7080
-        
+        - name: appjava
+          image: lucaseveron/tp6billingapp:v1
+          ports:
+            - containerPort: 7080
+          volumeMounts:
+            - name: logs
+              mountPath: /var/logs
+      volumes:
+        - name: logs
+          emptyDir: {}
+      
 
